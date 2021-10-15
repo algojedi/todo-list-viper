@@ -6,25 +6,27 @@ export type TodoContextValue = {
   editTodo: (todo: Todo) => void;
   addTodo: (title: string) => void;
   deleteTodo: (id: number) => void;
+  toggleTodo: (id: number) => void;
 };
 
 const initialTodoContext: TodoContextValue = {
   todos: [],
-  editTodo: () => { },
-  addTodo: () => { },
-  deleteTodo: () => { },
+  editTodo: () => {},
+  addTodo: () => {},
+  deleteTodo: () => {},
+  toggleTodo: () => {}
 }
 
 const mockTodos: Todo[] = [
   {
     title: 'fertilize lawn',
-    date: Date.now().toString(),
+    date: new Date().toDateString(),
     completed: false,
     id: 0
   },
   {
     title: 'purchase lottery ticket',
-    date: Date.now().toString(),
+    date: new Date().toDateString(),
     completed: false,
     id: 1
   },
@@ -42,10 +44,19 @@ export const TodosProvider: React.FC<{}> = ({ children }) => {
     setTodos(newTodos)
   }
 
+  const toggleTodo = (id: number) => {
+    const newTodos = [ ...todos ]
+    const todo = newTodos.find(todo => todo.id === id)
+    if (!todo) return
+    todo.completed = !todo.completed
+    console.log({toggleTodo: todo})
+    setTodos(newTodos)
+  }
+
   const addTodo = (newTodo: string) => {
     const todo: Todo = {
       title: newTodo, id: mockId++,
-      date: Date.now().toString(), 
+      date: new Date().toDateString(),
       completed: false
     }
     const newTodos = [...todos, todo]
@@ -53,7 +64,7 @@ export const TodosProvider: React.FC<{}> = ({ children }) => {
   }
 
   const deleteTodo = (id: number) => {
-     setTodos(todos.filter(todo => todo.id !== id))
+    setTodos(todos.filter(todo => todo.id !== id))
   }
 
   return (
@@ -61,7 +72,8 @@ export const TodosProvider: React.FC<{}> = ({ children }) => {
       todos,
       editTodo,
       addTodo,
-      deleteTodo
+      deleteTodo,
+      toggleTodo
     }}>
       {children}
     </TodoContext.Provider>

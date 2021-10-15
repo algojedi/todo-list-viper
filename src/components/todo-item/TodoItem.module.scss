@@ -1,14 +1,25 @@
 .todo { 
 	display: flex;
-	padding: 1.5rem;
-	&_title {
-		font-size: 1.8rem;
-		font-weight: bold;
-		margin: 2rem;
+	padding: 1rem;
+	.title {
+		font-size: 1.4rem;
+		cursor: pointer;
 	}
-	&_date {
-		font-size: 1.8rem;
+	.title_completed {
+		font-size: 1.4rem;
+		text-decoration: line-through;
+		cursor: pointer;
+	}
+	.date {
+		font-size: 1.4rem;
 		color: darkgrey;
-		margin: 2rem;
+		margin: 0 1rem;
+	}
+	.button {
+		background: none;
+		border: none;
+		cursor: pointer;
+		.icon {
+		}
 	}
 }
