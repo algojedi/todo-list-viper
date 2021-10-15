@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 80%;
+  margin: 1rem auto;
+  padding: 2rem;
+  font-size: 1.6rem;
+}
+.todo_input {
+  padding: 0.25rem 0.5rem;
+
+}
+.submit_btn {
+  padding: 0.25rem 0.5rem;
+	background-color: plum;
+}

@@ -1,16 +1,20 @@
 import React from 'react'
-import './header.scss'
+import styles from './Header.module.scss'
 
-interface HeaderProps {
+export type HeaderProps = {
 	title?: string;
 }
 
-const defaultProps : HeaderProps = { title: 'Oh, hi'}
+const defaultProps: HeaderProps = { title: 'Oh, hi' }
 
 export const Header: React.FC<HeaderProps> = ({ title }) => {
-		return (
-			<header className="header">{title}</header>
-		);
+	return (
+		<header className={styles.header}>
+			<section className={styles.title}>
+				{title}
+			</section>
+		</header>
+	);
 }
 
 Header.defaultProps = defaultProps
