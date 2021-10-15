@@ -3,7 +3,7 @@ import { Todo } from '../../types';
 import styles from './TodoItem.module.scss'
 import { ReactComponent as DeleteIcon } from './delete.svg';
 import { TodoContext } from '../../contexts/TodoContext';
-import cx from 'classnames'
+// import cx from 'classnames'
 
 export type TodoItemProps = {
 	todo: Todo;

@@ -5,7 +5,7 @@ export type HeaderProps = {
 	title?: string;
 }
 
-const defaultProps: HeaderProps = { title: 'Oh, hi' }
+const defaultProps: HeaderProps = { title: '' }
 
 export const Header: React.FC<HeaderProps> = ({ title }) => {
 	return (

@@ -1,14 +1,13 @@
 .todo { 
 	display: flex;
-	padding: 1rem;
-	.title {
+	padding: .5rem;
+
+	.title, .title_completed {
 		font-size: 1.4rem;
 		cursor: pointer;
 	}
 	.title_completed {
-		font-size: 1.4rem;
 		text-decoration: line-through;
-		cursor: pointer;
 	}
 	.date {
 		font-size: 1.4rem;

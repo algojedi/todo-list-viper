@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useRef, useState } from 'react';
 import { Todo } from '../types';
 
 export type TodoContextValue = {
@@ -36,7 +36,7 @@ export const TodoContext = createContext<TodoContextValue>(initialTodoContext);
 
 export const TodosProvider: React.FC<{}> = ({ children }) => {
   const [todos, setTodos] = useState<Todo[]>(mockTodos);
-  let mockId = 2
+  const mockId = useRef(2)
 
   const editTodo = (editedTodo: Todo) => {
     const newTodos = todos.filter(todo => todo.id !== editedTodo.id)
@@ -55,7 +55,7 @@ export const TodosProvider: React.FC<{}> = ({ children }) => {
 
   const addTodo = (newTodo: string) => {
     const todo: Todo = {
-      title: newTodo, id: mockId++,
+      title: newTodo, id: mockId.current++,
       date: new Date().toDateString(),
       completed: false
     }
