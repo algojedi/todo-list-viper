@@ -59,7 +59,7 @@ export const TodosProvider: React.FC<{}> = ({ children }) => {
       date: new Date().toDateString(),
       completed: false
     }
-    const newTodos = [...todos, todo]
+    const newTodos = [todo, ...todos]
     setTodos(newTodos)
   }
 

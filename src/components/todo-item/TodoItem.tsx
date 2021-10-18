@@ -1,8 +1,8 @@
 import React, { useContext } from 'react'
 import { Todo } from '../../types';
 import styles from './TodoItem.module.scss'
-import { ReactComponent as DeleteIcon } from './delete.svg';
 import { TodoContext } from '../../contexts/TodoContext';
+import Icon from '../atoms/icon';
 // import cx from 'classnames'
 
 export type TodoItemProps = {
@@ -31,7 +31,7 @@ export const TodoItem: React.FC<TodoItemProps> = ({ todo }) => {
 			</section>
 			<section className={styles.date}>{todo.date}</section>
 			<button onClick={handleDelete} className={styles.button}>
-				<DeleteIcon className={styles.icon} />
+				<Icon className={styles.icon} asset="Delete" />
 			</button>
 		</li>
 
