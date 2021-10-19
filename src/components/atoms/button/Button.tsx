@@ -4,8 +4,6 @@ import styles from './Button.module.scss';
 import Text, { TextProps } from '../text';
 import Icon, { IconProps } from '../icon';
 
-// import Text, { TextProps } from '../Text'
-
 export type ButtonSizeType = 'Large' | 'Medium' | 'Small'
 export type ButtonTypeType = 'TextIcon' | 'Text' | 'Icon'
 export type ButtonStyleType = 'Square' | 'Pill' | 'Rounded'
@@ -98,6 +96,6 @@ const Button: React.FC<ButtonProps> = ({
 	);
 };
 
-Button.defaultProps = defaultProps;
+Button.defaultProps = defaultProps
 
-export default Button;
+export default Button
