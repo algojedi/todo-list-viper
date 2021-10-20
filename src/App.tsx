@@ -1,8 +1,7 @@
 import React from 'react';
 import './App.css';
 import { Header } from './components/header/Header';
-import { InputTodo } from './components/input-todo/InputTodo';
-import { TodoList } from './components/todos-list/TodoList';
+import { TodoPage } from './components/pages/todo-page/TodoPage';
 import { TodosProvider } from './contexts/TodoContext';
 
 function App() {
@@ -10,8 +9,7 @@ function App() {
     <div className="App">
       <Header />
       <TodosProvider>
-        <InputTodo />
-        <TodoList />
+        <TodoPage />
       </TodosProvider>
     </div>
   );

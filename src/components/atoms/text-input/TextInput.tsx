@@ -8,7 +8,7 @@ export type TextInputTypeType = 'Text' | 'Password' | 'Username'
 export type TextInputStyleType = 'Default' | 'Grey' | 'Red'
 
 export const defaultProps = {
-	type: 'Default' as TextInputTypeType,
+	type: 'Text' as TextInputTypeType,
 	style: 'Default' as TextInputStyleType,
 	text: {
 		align: 'Left',

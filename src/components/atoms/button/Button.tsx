@@ -6,7 +6,7 @@ import Icon, { IconProps } from '../icon';
 
 export type ButtonSizeType = 'Large' | 'Medium' | 'Small'
 export type ButtonTypeType = 'TextIcon' | 'Text' | 'Icon'
-export type ButtonStyleType = 'Square' | 'Pill' | 'Rounded'
+export type ButtonStyleType = 'Square' | 'RightRounded' | 'Rounded'
 export type ButtonButtonTypeType = 'button' | 'submit' | 'reset';
 
 export const defaultProps = {
@@ -18,10 +18,6 @@ export const defaultProps = {
 		align: 'Center',
 		style: 'Default',
 	} as TextProps,
-	icon: {
-		asset: 'Add',
-		style: 'Grey',
-	} as IconProps,
 };
 
 export type ButtonProps = {
@@ -52,6 +48,7 @@ const Button: React.FC<ButtonProps> = ({
 
 	let contentView;
 
+	console.log({icon})
 	switch (type) {
 		case 'TextIcon':
 			contentView = (
@@ -84,7 +81,7 @@ const Button: React.FC<ButtonProps> = ({
 			);
 			break;
 	}
-
+	console.log({ contentView })
 	return (
 		<button
 			disabled={disabled}

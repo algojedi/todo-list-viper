@@ -5,11 +5,11 @@ import { ReactComponent as DeleteIcon } from '../../../resources/icons/delete.sv
 import { ReactComponent as PlusIcon } from '../../../resources/icons/plus.svg';
 
 export type IconAssetType = 'Delete' | 'Add' 
-export type IconStyleType = 'Grey' | 'Green' | 'Blue' | 'Red'
+export type IconStyleType = 'Default' | 'Green' | 'Blue' | 'Red'
 
 export const defaultProps = {
 	asset: 'Card' as IconAssetType,
-	style: 'Grey' as IconStyleType,
+	style: 'Default' as IconStyleType,
 };
 
 export type IconProps = {
