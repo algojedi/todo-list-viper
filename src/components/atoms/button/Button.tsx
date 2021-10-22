@@ -81,7 +81,7 @@ const Button: React.FC<ButtonProps> = ({
 			);
 			break;
 	}
-	console.log({ contentView })
+	// console.log({ onBtnClickedInButtonAtom: onButtonClicked })
 	return (
 		<button
 			disabled={disabled}

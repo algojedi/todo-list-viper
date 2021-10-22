@@ -5,29 +5,53 @@ import styles from './InputTodo.module.scss'
 
 
 export type InputTodoProps = {
-	todoEntry? : TodoEntryProps
+	todoEntry?: TodoEntryProps
 }
 
 export const defaultProps: InputTodoProps = {
-	todoEntry : {
+	todoEntry: {
+		input: {
+			textPlaceholder: 'Enter todo...',
 
+		},
+		button: {
+			text: {
+				value: 'Add'
+			}
+		}
 	}
 }
 
-export const InputTodo: React.FC<InputTodoProps> = (
+export const InputTodo: React.FC<InputTodoProps> = ({
 	todoEntry,
-
-) => {
+}) => {
 	const [input, setInput] = useState('')
 	const { addTodo } = useContext(TodoContext)
+
+	const handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void
+		= e => {
+			setInput(e.target.value)
+		}
+
 	const handleClick = () => {
+		console.log('added?')
 		if (input === '') return
-		addTodo(input)
 		setInput('')
+		addTodo(input)
+	}
+
+	const modifiedProps: TodoEntryProps = {
+		input: {
+			...todoEntry?.input, textValue: input,
+			onTextChanged: handleChange
+		},
+		button: { ...todoEntry?.button, onButtonClicked: handleClick }
 	}
 	return (
 		<section className={styles.container}>
-			<TodoEntry {...todoEntry} />
+			<TodoEntry {...modifiedProps} />
 		</section>
 	);
 }
+
+InputTodo.defaultProps = defaultProps

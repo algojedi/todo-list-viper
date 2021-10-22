@@ -31,6 +31,7 @@ export const TodoEntry: React.FC<TodoEntryProps> = ({
 	input,
 	button
 }) => {
+	console.log({button})
 	return (
 		<>
 			<TextInput className={styles.text_input} {...input}/>

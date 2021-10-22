@@ -21,11 +21,12 @@ export type TextInputProps = {
 	style?: TextInputStyleType;
 	textValue?: string;
 	textPlaceholder?: string;
-	onTextChanged?: (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => void;
+	onTextChanged?: (e: React.ChangeEvent<HTMLInputElement>) => void 
 	className?: string;
 	text?: TextProps;
 };
 
+	// (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => void;
 const TextInput: React.FC<TextInputProps> = ({
 	type,
 	style,
