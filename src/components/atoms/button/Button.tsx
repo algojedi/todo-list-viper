@@ -7,7 +7,7 @@ import Icon, { IconProps } from '../icon';
 export type ButtonSizeType = 'Large' | 'Medium' | 'Small'
 export type ButtonTypeType = 'TextIcon' | 'Text' | 'Icon'
 export type ButtonStyleType = 'Square' | 'RightRounded' | 'Rounded'
-export type ButtonButtonTypeType = 'button' | 'submit' | 'reset';
+export type ButtonFunctionType = 'button' | 'submit' | 'reset';
 
 export const defaultProps = {
 	size: 'Small' as ButtonSizeType,
@@ -24,12 +24,11 @@ export type ButtonProps = {
 	size?: ButtonSizeType;
 	type?: ButtonTypeType;
 	style?: ButtonStyleType;
-	buttonType?: ButtonButtonTypeType;
+	buttonType?: ButtonFunctionType;
 	onButtonClicked?: (event?: React.MouseEvent<HTMLButtonElement>) => void;
 	text?: TextProps;
 	icon?: IconProps;
 	className?: string;
-	disabled?: boolean;
 };
 
 const Button: React.FC<ButtonProps> = ({
@@ -41,14 +40,12 @@ const Button: React.FC<ButtonProps> = ({
 	text,
 	icon,
 	className,
-	disabled,
 }) => {
 
 	const currentStyle = styles[`button${size}${type}${style}`];
-
+	console.log(`button${size}${type}${style}`)
 	let contentView;
 
-	console.log({icon})
 	switch (type) {
 		case 'TextIcon':
 			contentView = (
@@ -81,10 +78,9 @@ const Button: React.FC<ButtonProps> = ({
 			);
 			break;
 	}
-	// console.log({ onBtnClickedInButtonAtom: onButtonClicked })
+	console.log({ className })
 	return (
 		<button
-			disabled={disabled}
 			type={buttonType}
 			onClick={onButtonClicked}
 			className={cx(currentStyle, className)}>

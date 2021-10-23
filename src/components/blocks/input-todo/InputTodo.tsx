@@ -1,8 +1,9 @@
 import React, { useContext, useState } from 'react'
 import { TodoContext } from '../../../contexts/TodoContext'
+import { defaultProps as defaultButtonProps, ButtonProps } from '../../atoms/button/Button'
 import { TodoEntry, TodoEntryProps } from '../../molecules/todo-entry/TodoEntry'
 import styles from './InputTodo.module.scss'
-
+import { defaultProps as defaultIconProps } from '../../atoms/icon/Icon'
 
 export type InputTodoProps = {
 	todoEntry?: TodoEntryProps
@@ -12,13 +13,20 @@ export const defaultProps: InputTodoProps = {
 	todoEntry: {
 		input: {
 			textPlaceholder: 'Enter todo...',
-
 		},
 		button: {
+			...defaultButtonProps,
 			text: {
+				...defaultButtonProps.text,
 				value: 'Add'
+			},
+			type: 'TextIcon',
+			style: 'RightRounded',
+			icon: {
+				...defaultIconProps,
+				asset: 'Add'
 			}
-		}
+		} as ButtonProps
 	}
 }
 
@@ -34,7 +42,6 @@ export const InputTodo: React.FC<InputTodoProps> = ({
 		}
 
 	const handleClick = () => {
-		console.log('added?')
 		if (input === '') return
 		setInput('')
 		addTodo(input)

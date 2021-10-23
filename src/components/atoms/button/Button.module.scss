@@ -1,0 +1,23 @@
+.buttonSmallTextIconRightRounded {
+    display: flex;
+		padding: .25rem;
+		border: .1rem solid black;
+		border-radius: 0 .5rem .5rem 0;
+		cursor: pointer;
+		background-color: plum;
+}
+.content {
+    display: flex;
+    flex-wrap: nowrap;
+		justify-content: center;
+		align-items: center;
+		font-size: 2rem;
+}
+
+.text {
+	margin: 0 .25rem;
+}
+
+.icon {
+	margin: 0 .25rem;
+}
