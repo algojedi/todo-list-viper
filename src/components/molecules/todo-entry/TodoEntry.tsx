@@ -9,6 +9,7 @@ import { IconProps } from '../../atoms/icon';
 export type TodoEntryProps = {
 	button?: ButtonProps;
 	input?: TextInputProps;
+	classNames?: string;
 }
 
 export const defaultProps: TodoEntryProps = {
@@ -29,14 +30,15 @@ export const defaultProps: TodoEntryProps = {
 }
 export const TodoEntry: React.FC<TodoEntryProps> = ({ 
 	input,
-	button
+	button,
+	classNames
 }) => {
 	console.log({button})
 	return (
-		<>
+		<div className={cx(styles.todo_entry, classNames)}>
 			<TextInput className={styles.text_input} {...input}/>
 			<Button className={styles.button} {...button} />
-		</>
+		</div>
 	);
 }
 
