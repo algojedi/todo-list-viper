@@ -1,23 +1,30 @@
-.buttonSmallTextIconRightRounded {
+.buttonSmallTextIconRightRounded,
+.buttonSmallIconRightRounded {
     display: flex;
-		padding: .25rem;
-		border: .1rem solid black;
-		border-radius: 0 .5rem .5rem 0;
-		cursor: pointer;
-		background-color: plum;
+    align-items: center;
+    border: 0.1rem solid black;
+    border-radius: 0 0.5rem 0.5rem 0;
+    cursor: pointer;
+    background-color: plum;
 }
+
+.buttonSmallIconRightRounded {
+    background-color: peru;
+}
+
 .content {
     display: flex;
     flex-wrap: nowrap;
-		justify-content: center;
-		align-items: center;
-		font-size: 2rem;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
 }
 
 .text {
-	margin: 0 .25rem;
+    margin: 0 0.25rem;
+    font-size: 1.6rem;
 }
 
 .icon {
-	margin: 0 .25rem;
+    margin: 0 0.25rem;
 }

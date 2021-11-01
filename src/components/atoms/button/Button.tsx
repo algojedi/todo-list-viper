@@ -46,6 +46,7 @@ const Button: React.FC<ButtonProps> = ({
 	console.log(`button${size}${type}${style}`)
 	let contentView;
 
+	console.log( { type });
 	switch (type) {
 		case 'TextIcon':
 			contentView = (

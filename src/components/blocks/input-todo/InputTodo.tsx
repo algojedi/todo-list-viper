@@ -4,9 +4,11 @@ import { defaultProps as defaultButtonProps, ButtonProps } from '../../atoms/but
 import { TodoEntry, TodoEntryProps } from '../../molecules/todo-entry/TodoEntry'
 import styles from './InputTodo.module.scss'
 import { defaultProps as defaultIconProps } from '../../atoms/icon/Icon'
+import cx from 'classnames'
 
 export type InputTodoProps = {
-	todoEntry?: TodoEntryProps
+	todoEntry?: TodoEntryProps;
+	className?: string;
 }
 
 export const defaultProps: InputTodoProps = {
@@ -20,7 +22,7 @@ export const defaultProps: InputTodoProps = {
 				...defaultButtonProps.text,
 				value: 'Add'
 			},
-			type: 'TextIcon',
+			type: 'TextIcon',  
 			style: 'RightRounded',
 			icon: {
 				...defaultIconProps,
@@ -32,6 +34,7 @@ export const defaultProps: InputTodoProps = {
 
 export const InputTodo: React.FC<InputTodoProps> = ({
 	todoEntry,
+	className
 }) => {
 	const [input, setInput] = useState('')
 	const { addTodo } = useContext(TodoContext)
@@ -47,6 +50,7 @@ export const InputTodo: React.FC<InputTodoProps> = ({
 		addTodo(input)
 	}
 
+	// customizing TodoEntry to our liking... should be done in presenter
 	const modifiedProps: TodoEntryProps = {
 		input: {
 			...todoEntry?.input, textValue: input,
@@ -55,8 +59,8 @@ export const InputTodo: React.FC<InputTodoProps> = ({
 		button: { ...todoEntry?.button, onButtonClicked: handleClick }
 	}
 	return (
-		<section className={styles.container}>
-			<TodoEntry {...modifiedProps} />
+		<section className={cx(styles.container, className)}>
+			<TodoEntry {...modifiedProps} className={styles.todo_entry} />
 		</section>
 	);
 }

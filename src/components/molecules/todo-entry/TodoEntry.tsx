@@ -5,11 +5,12 @@ import styles from './TodoEntry.module.scss'
 import { defaultProps as textInputDefaultProps } from '../../atoms/text-input/TextInput'
 import { defaultProps as buttonDefaultProps } from '../../atoms/button/Button'
 import { IconProps } from '../../atoms/icon';
+import cx from 'classnames'
 
 export type TodoEntryProps = {
 	button?: ButtonProps;
 	input?: TextInputProps;
-	classNames?: string;
+	className?: string;
 }
 
 export const defaultProps: TodoEntryProps = {
@@ -31,11 +32,11 @@ export const defaultProps: TodoEntryProps = {
 export const TodoEntry: React.FC<TodoEntryProps> = ({ 
 	input,
 	button,
-	classNames
+	className
 }) => {
-	console.log({button})
+	console.log({button, className})
 	return (
-		<div className={cx(styles.todo_entry, classNames)}>
+		<div className={cx(className, styles.todo_entry)}>
 			<TextInput className={styles.text_input} {...input}/>
 			<Button className={styles.button} {...button} />
 		</div>
