@@ -43,10 +43,8 @@ const Button: React.FC<ButtonProps> = ({
 }) => {
 
 	const currentStyle = styles[`button${size}${type}${style}`];
-	console.log(`button${size}${type}${style}`)
 	let contentView;
 
-	console.log( { type });
 	switch (type) {
 		case 'TextIcon':
 			contentView = (
@@ -79,7 +77,8 @@ const Button: React.FC<ButtonProps> = ({
 			);
 			break;
 	}
-	console.log({ className })
+	console.log({onButtonClicked})
+	// todo: why isn't button clicking to the console???
 	return (
 		<button
 			type={buttonType}

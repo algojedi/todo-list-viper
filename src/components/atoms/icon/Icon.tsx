@@ -15,7 +15,6 @@ export const defaultProps = {
 export type IconProps = {
 	asset?: IconAssetType;
 	style?: IconStyleType;
-	contentAlt?: string;
 	className?: string;
 	onClick?: VoidFunction;
 }
@@ -29,7 +28,7 @@ export type IconProps = {
 
 		const currentStyle = styles[`icon${asset}${style}`];
 
-		let content : ReactElement | null = null
+		let content
 		
 		switch (asset) {
 			case 'Delete':

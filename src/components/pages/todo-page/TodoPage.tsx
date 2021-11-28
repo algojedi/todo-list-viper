@@ -1,16 +1,24 @@
 import React from 'react'
-import { InputTodo } from '../../blocks/input-todo/InputTodo'
-import { TodoList } from '../../todos-list/TodoList'
+import { TodoEntry } from '../../molecules/todo-entry/TodoEntry'
+import { TodoList } from '../../organisms/todos-list/TodoList'
 
 export type TodoPageProps = {
-
+	className?: string;
 }
 
-export const TodoPage: React.FC<TodoPageProps> = () => {
+    // const handleDelete = () => {
+    //     if (todo)
+    //     deleteTodo(todo.id)
+    // }
+    // const handleTitleClick = () => {
+    //     if (todo)
+    //     toggleTodo(todo?.id)
+    // } text: onClick={handleTitleClick} 
+export const TodoPage: React.FC<TodoPageProps> = ( { className }) => {
 		return (
-			<> 
-        <InputTodo />
+			<div className={className}> 
+        <TodoEntry />
         <TodoList />
-			</>
+			</div>
 		)
 }
