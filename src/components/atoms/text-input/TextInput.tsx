@@ -23,7 +23,6 @@ export type TextInputProps = {
 	textPlaceholder?: string;
 	onTextChanged?: (e: React.ChangeEvent<HTMLInputElement>) => void 
 	className?: string;
-	text?: TextProps;
 };
 
 	// (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => void;
@@ -34,7 +33,6 @@ const TextInput: React.FC<TextInputProps> = ({
 	textPlaceholder,
 	onTextChanged,
 	className,
-	text
 }) => {
 
 	const currentStyle = styles[`textInput${type}${style}`];

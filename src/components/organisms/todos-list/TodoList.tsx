@@ -1,11 +1,10 @@
-import classNames from 'classnames'
-import React, { useContext } from 'react'
-import { TodoContext } from '../../../contexts/TodoContext'
+import React from 'react'
+// import { TodoContext } from '../../../contexts/TodoContext'
 import { TodoItem, TodoItemProps } from '../../molecules/todo-item/TodoItem'
 import styles from './TodoList.module.scss'
 import cx from 'classnames';
 
-type TodoListProps = { className?: string; todos?: TodoItemProps[]; }
+export type TodoListProps = { className?: string; todos?: TodoItemProps[]; }
 
 export const defaultProps : TodoListProps = { todos: [] }
 

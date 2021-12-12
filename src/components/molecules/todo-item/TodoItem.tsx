@@ -11,6 +11,7 @@ export type TodoItemProps = {
     todo?: Todo
     icon? : IconAssetType;
     button? : ButtonProps;
+    id?: number;
 }
 
 export const defaultProps : TodoItemProps = {
