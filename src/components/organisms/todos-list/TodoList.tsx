@@ -1,20 +1,21 @@
 import React from 'react'
-// import { TodoContext } from '../../../contexts/TodoContext'
-import { TodoItem, TodoItemProps } from '../../molecules/todo-item/TodoItem'
+import { TodoItem, TodoItemProps, defaultProps as defaultTodoItemProps } from '../../molecules/todo-item/TodoItem'
 import styles from './TodoList.module.scss'
-import cx from 'classnames';
+import cx from 'classnames'
 
-export type TodoListProps = { className?: string; todos?: TodoItemProps[]; }
+export type TodoListProps = { className?: string; todoItems?: TodoItemProps[] }
 
-export const defaultProps : TodoListProps = { todos: [] }
+export const defaultProps: TodoListProps = { todoItems: [] }
 
-export const TodoList: React.FC<TodoListProps> = ( { className, todos }) => {
-    const listTodos = todos?.map((todoItem) => ( 
-        <TodoItem key={todoItem.todo?.id} {...todoItem} />
-    ))
+export const TodoList: React.FC<TodoListProps> = ({ className, todoItems }) => {
+
+    const listTodosView = todoItems?.map((todoItem) => {
+        return <TodoItem key={todoItem.todo?.id} {...todoItem} />
+    })
+
     return (
-        <section className={cx(styles.todoList, className) }>
-            <ul className={styles.todos_list}>{listTodos}</ul>
+        <section className={cx(styles.todoList, className)}>
+            <ul className={styles.todos_list}>{listTodosView}</ul>
         </section>
     )
 }

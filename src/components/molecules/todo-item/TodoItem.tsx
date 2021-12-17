@@ -9,7 +9,6 @@ import { IconAssetType } from '../../atoms/icon/Icon'
 export type TodoItemProps = {
     className?: string;
     todo?: Todo
-    icon? : IconAssetType;
     button? : ButtonProps;
     id?: number;
 }
@@ -25,7 +24,6 @@ export const defaultProps : TodoItemProps = {
 }
 
 export const TodoItem: React.FC<TodoItemProps> = ({ todo, button, className }) => {
-    // const { deleteTodo, toggleTodo } = useContext(TodoContext)
     let completed = todo?.completed ? '_completed' : ''
     const currentStyle = styles[`title${completed}`]
     console.log({ todo });

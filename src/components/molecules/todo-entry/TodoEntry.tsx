@@ -7,14 +7,12 @@ import { defaultProps as buttonDefaultProps } from '../../atoms/button/Button'
 import { defaultProps as iconDefaultProps } from '../../atoms/button/Button'
 import { IconProps } from '../../atoms/icon';
 import cx from 'classnames'
-import { TodoContext } from '../../../contexts/TodoContext';
 
 export type TodoEntryProps = {
 	button?: ButtonProps;
 	input?: TextInputProps;
 	className?: string;
 }
-
 
 export const defaultProps: TodoEntryProps = {
 	input: {
@@ -43,36 +41,12 @@ export const TodoEntry: React.FC<TodoEntryProps> = ({
 	button,
 	className
 }) => {
-	const [textInput, setTextInput] = useState('')
-	const { addTodo } = useContext(TodoContext)
 
-	const handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void
-		= e => {
-			setTextInput(e.target.value)
-		}
-
-	const handleClick = () => {
-		if (textInput === '') return
-		addTodo(textInput)
-		setTextInput('')
-	}
-
-	const modifiedProps: TodoEntryProps = {
-		input: {
-			...input, textValue: textInput,
-			onTextChanged: handleChange
-		},
-		button: { ...button, onButtonClicked: handleClick }
-	}
-	// console.log({ modifiedProps })
-
-	// TODO: todo_entry needs the styling for the container from 
-	// the now deleted InputTodo.scss
 	
 	return (
 		<div className={cx(className, styles.todo_entry)}>
-			<TextInput className={styles.text_input} {...modifiedProps.input}/>
-			<Button className={styles.button} {...modifiedProps.button} />
+			<TextInput className={styles.text_input} {...input}/>
+			<Button className={styles.button} {...button} />
 		</div>
 	);
 }
