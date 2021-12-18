@@ -15,6 +15,7 @@ export type TodoItemProps = {
 
 export const defaultProps : TodoItemProps = {
     button: {
+        type: 'TextIcon',
         icon: { asset: 'Delete' }
     },
     todo: {
@@ -26,8 +27,9 @@ export const defaultProps : TodoItemProps = {
 export const TodoItem: React.FC<TodoItemProps> = ({ todo, button, className }) => {
     let completed = todo?.completed ? '_completed' : ''
     const currentStyle = styles[`title${completed}`]
-    console.log({ todo });
+    console.log( { currentStyle })
 
+    console.log('rerendering todo item')
     return (
         <li className={cx(styles.todo, className)}>
             <Text className={currentStyle} {...todo?.title}/>

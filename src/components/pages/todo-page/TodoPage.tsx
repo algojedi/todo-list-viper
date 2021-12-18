@@ -1,12 +1,15 @@
 import React, { useState } from 'react'
-import { addTodo, getTodos } from '../../../db'
+import { addTodo, deleteTodo, getTodos, toggleTodo } from '../../../db'
 import { Todo } from '../../../types'
 import TodoPageBlock from '../../blocks/todo-page-block/TodoPageBlock'
 import {
     TodoEntryProps,
     defaultProps as defaultTodoEntryProps
 } from '../../molecules/todo-entry/TodoEntry'
-import { TodoItemProps, defaultProps as defaultTodoItemProps } from '../../molecules/todo-item/TodoItem'
+import {
+    TodoItemProps,
+    defaultProps as defaultTodoItemProps
+} from '../../molecules/todo-item/TodoItem'
 import { TodoListProps } from '../../organisms/todos-list/TodoList'
 
 export type TodoPageProps = { className?: string }
@@ -14,21 +17,17 @@ export const TodoPage: React.FC<TodoPageProps> = ({ className }) => {
     const [todos, setTodos] = useState<Todo[]>([])
     const [textInput, setTextInput] = useState('')
 
-    const doGetTodos = React.useCallback(async () => {
-        try {
+    React.useEffect(() => {
+        const doGetTodos = async () => {
             const result = await getTodos()
             setTodos(result)
-        } catch (error) {
-            console.log(error)
         }
+        doGetTodos()
     }, [])
 
-    React.useEffect(() => {
-        doGetTodos()
-    }, [doGetTodos])
-
     const refetchTodos = async () => {
-        await doGetTodos()
+        const result = await getTodos()
+        setTodos([...result])
         console.log('refetchTodos')
     }
 
@@ -58,29 +57,29 @@ export const TodoPage: React.FC<TodoPageProps> = ({ className }) => {
         }
     } as TodoEntryProps
 
-    const modifyTodos = todos.map(
-        (todo) =>
-            ({
-                todo : {
-                    ...todo,
-                    title: {
-                        ...todo.title,
-                        onClick: () => {
-                            console.log('title clicked from page')
-                        }
-                    }
-                } as Todo,
-                button: {
-                    ...defaultTodoItemProps.button,
-                    onButtonClicked: () => {
-                        console.log('delete button clicked from page')
-                    },
-                },
-                
-            } as TodoItemProps )
-    )
+    const todoItems: TodoItemProps[] = todos.map((todo) => ({
+        todo: {
+            ...todo,
+            title: {
+                ...todo.title,
+                onClick: () => {
+                    toggleTodo(todo.id!)
+                    refetchTodos()
+                }
+            }
+        },
+        button: {
+            ...defaultTodoItemProps.button,
+            type: 'Icon',
+            onButtonClicked: () => {
+                deleteTodo(todo.id!)
+                refetchTodos()
+            }
+        }
+    }))
+
     const todoList = {
-        todoItems: modifyTodos // TODO: these badboys need click handlers in TodoList component
+        todoItems
     } as TodoListProps
 
     return <TodoPageBlock todoList={todoList} todoEntry={todoEntry} />

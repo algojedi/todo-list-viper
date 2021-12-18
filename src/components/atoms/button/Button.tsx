@@ -77,8 +77,7 @@ const Button: React.FC<ButtonProps> = ({
 			);
 			break;
 	}
-	console.log({onButtonClicked})
-	// todo: why isn't button clicking to the console???
+
 	return (
 		<button
 			type={buttonType}

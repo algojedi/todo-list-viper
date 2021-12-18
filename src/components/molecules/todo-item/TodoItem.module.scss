@@ -1,16 +1,17 @@
 .todo { 
 	display: flex;
 	padding: .5rem;
+	align-items: center;
 
 	.title, .title_completed {
-		font-size: 1.4rem;
+		font-size: 1.6rem;
 		cursor: pointer;
 	}
 	.title_completed {
 		text-decoration: line-through;
 	}
 	.date {
-		font-size: 1.4rem;
+		font-size: 1.6rem;
 		color: darkgrey;
 		margin: 0 1rem;
 	}
