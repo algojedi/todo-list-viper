@@ -4,7 +4,7 @@ import { TodoPage } from '../pages/todo-page/TodoPage'
 
 interface MainLayoutProps {}
 
-export const MainLayout: React.FC<MainLayoutProps> = ({}) => {
+export const MainLayout: React.FC<MainLayoutProps> = () => {
     return (
         <>
             <Header />

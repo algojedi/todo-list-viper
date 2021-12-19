@@ -1,13 +1,14 @@
 import React from 'react'
 import cx from 'classnames'
 import styles from './Header.module.scss'
+import { TextProps } from '../../atoms/text/Text'
 
 export type HeaderProps = {
-    title?: string
+    title?: TextProps
     className?: string
 }
 
-const defaultProps: HeaderProps = { title: 'The Todo App' }
+export const defaultProps: HeaderProps = { title: { type: 'Title', style: 'Blue' } }
 
 export const Header: React.FC<HeaderProps> = ({ title, className }) => {
     return (
