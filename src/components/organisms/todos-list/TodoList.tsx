@@ -14,9 +14,9 @@ export const TodoList: React.FC<TodoListProps> = ({ className, todoItems }) => {
     })
 
     return (
-        <section className={cx(styles.todoList, className)}>
+        <div className={cx(styles.todoList, className)}>
             <ul className={styles.todos_list}>{listTodosView}</ul>
-        </section>
+        </div>
     )
 }
 

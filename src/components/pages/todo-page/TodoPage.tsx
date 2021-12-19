@@ -27,8 +27,7 @@ export const TodoPage: React.FC<TodoPageProps> = ({ className }) => {
 
     const refetchTodos = async () => {
         const result = await getTodos()
-        setTodos([...result])
-        console.log('refetchTodos')
+        setTodos([...result]) // need to spread because of faux backend
     }
 
     const handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void = (

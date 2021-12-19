@@ -28,7 +28,6 @@ export const defaultProps: TodoEntryProps = {
 				...buttonDefaultProps.text,
 				value: 'Add'
 			},
-		onButtonClicked: () => { console.log('button clicked!')},
 		icon: {
 				...iconDefaultProps,
 			asset: 'Add',
