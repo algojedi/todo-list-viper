@@ -17,15 +17,17 @@ let mockTodos: Todo[] = [
     }
 ]
 
-export const getTodos = () : Promise<Todo[]> =>
+export const getTodos = (): Promise<Todo[]> =>
     new Promise((resolve, reject) => {
         resolve(mockTodos)
     })
 
 export const toggleTodo = (id: number) => {
     const todo = mockTodos.find((todo) => todo.id === id)
-    if (!todo) return
-    todo.completed = !todo.completed
+    if (todo) {
+        todo.completed = !todo.completed
+    }
+    return Promise.resolve(true)
 }
 
 export const addTodo = (newTodo: string) => {
@@ -36,9 +38,10 @@ export const addTodo = (newTodo: string) => {
         completed: false
     }
     mockTodos.push(todo)
+    return Promise.resolve(todo)
 }
 
 export const deleteTodo = (id: number) => {
     mockTodos = mockTodos.filter((todo) => todo.id !== id)
+    return Promise.resolve(true)
 }
-

@@ -1,6 +1,6 @@
 import React from 'react'
 import Header from '../molecules/header'
-import { TodoPage } from '../pages/todo-page/TodoPage'
+import TodoPage from '../pages/todo-page'
 
 interface MainLayoutProps {}
 
