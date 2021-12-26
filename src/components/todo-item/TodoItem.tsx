@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { Todo } from '../../types';
 import styles from './TodoItem.module.scss'
 import { ReactComponent as DeleteIcon } from './delete.svg';
-import { TodoContext } from '../../contexts/TodoContext';
+import { deleteTodo, toggleTodo } from '../../db';
 // import cx from 'classnames'
 
 export type TodoItemProps = {
@@ -12,11 +12,9 @@ export type TodoItemProps = {
 export const defaultProps = {}
 
 export const TodoItem: React.FC<TodoItemProps> = ({ todo }) => {
-	const { deleteTodo, toggleTodo } = useContext(TodoContext)
 
 	let completed = todo.completed ? '_completed' : ''
 	const currentStyle = styles[`title${completed}`];
-
 
 	const handleDelete= () => {
 		deleteTodo(todo.id)
@@ -24,12 +22,13 @@ export const TodoItem: React.FC<TodoItemProps> = ({ todo }) => {
 	const handleTitleClick= () => {
 		toggleTodo(todo.id)
 	}
+
 	return (
 		<li className={styles.todo}>
-			<section onClick={handleTitleClick} className={currentStyle} >
+			<div onClick={handleTitleClick} className={currentStyle} >
 				{todo.title}
-			</section>
-			<section className={styles.date}>{todo.date}</section>
+			</div>
+			<div className={styles.date}>{todo.date}</div>
 			<button onClick={handleDelete} className={styles.button}>
 				<DeleteIcon className={styles.icon} />
 			</button>

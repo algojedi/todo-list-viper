@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react'
-import { TodoContext } from '../../contexts/TodoContext'
+import { addTodo } from '../../db'
 import styles from './InputTodo.module.scss'
 
 
@@ -9,7 +9,6 @@ type InputTodoProps = {
 
 export const InputTodo: React.FC<InputTodoProps> = () => {
 	const [input, setInput] = useState('')
-	const { addTodo } = useContext(TodoContext)
 	const handleClick = () => {
 		if (input === '') return
 		addTodo(input)
