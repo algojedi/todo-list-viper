@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Todo } from '../../types';
 import styles from './TodoItem.module.scss';
 import { ReactComponent as DeleteIcon } from './delete.svg';
@@ -22,14 +22,16 @@ export const TodoItem: React.FC<TodoItemProps> = ({
   const currentStyle = styles[`title${completed}`];
 
   const handleDelete = () => {
-    todo && deleteTodo(todo.id).then(() => {
-      refresh && refresh();
-    });
+    todo &&
+      deleteTodo(todo.id).then(() => {
+        refresh && refresh();
+      });
   };
   const handleTitleClick = () => {
-    todo && toggleTodo(todo.id).then(() => {
-      refresh && refresh();
-    });
+    todo &&
+      toggleTodo(todo.id).then(() => {
+        refresh && refresh();
+      });
   };
 
   return (

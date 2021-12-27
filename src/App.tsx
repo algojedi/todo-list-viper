@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
 import { Header, HeaderProps } from './components/header/Header';
-import styles from './App.module.scss';
 import { InputTodo, InputTodoProps } from './components/input-todo/InputTodo';
 import { TodoList, TodoListProps } from './components/todos-list/TodoList';
 import { getTodos } from './db';
 import { Todo } from './types';
+import styles from './App.module.scss';
 
 function App() {
   const [todos, setTodos] = useState<Todo[]>([]);
@@ -32,7 +32,7 @@ function App() {
 
   return (
     <div className='App'>
-      <Header {...headerProps} className={styles.header} />
+      <Header className={styles.header} {...headerProps} />
       <InputTodo className={styles.inputTodo} {...inputTodoProps} />
       <TodoList className={styles.todoList} {...todoListProps} />
     </div>
