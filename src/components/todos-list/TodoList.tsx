@@ -4,7 +4,7 @@ import { TodoItem } from '../todo-item/TodoItem';
 import styles from './TodoList.module.scss'
 import cx from 'classnames'
 
-type TodoListProps = {
+export type TodoListProps = {
 	todos?: Todo[];
 	refresh?: () => void;
 	className?: string;

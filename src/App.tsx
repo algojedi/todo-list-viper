@@ -1,65 +1,40 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
+import { Header, HeaderProps } from './components/header/Header';
 import styles from './App.module.scss';
-import { Header } from './components/header/Header';
-import { InputTodo } from './components/input-todo/InputTodo';
-import { TodoList } from './components/todos-list/TodoList';
-import { addTodo, getTodos } from './db';
+import { InputTodo, InputTodoProps } from './components/input-todo/InputTodo';
+import { TodoList, TodoListProps } from './components/todos-list/TodoList';
+import { getTodos } from './db';
 import { Todo } from './types';
 
 function App() {
-  const [todos, setTodos] = useState<Todo[]>([])
-  const [textInput, setTextInput] = useState('')
+  const [todos, setTodos] = useState<Todo[]>([]);
 
   const refetchTodos = async () => {
-    const newTodos = await getTodos()
-    console.log('newTodos', newTodos)
-    setTodos([...newTodos])
-  }
+    const newTodos = await getTodos();
+    setTodos([...newTodos]);
+  };
 
   useEffect(() => {
-    refetchTodos()
-  }, [])
+    refetchTodos();
+  }, []);
 
-  const handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void = (
-    e
-  ) => { setTextInput(e.target.value) }
+  const headerProps: HeaderProps = {
+    title: 'Todo List',
+  };
+  const todoListProps: TodoListProps = {
+    todos: todos,
+    refresh: refetchTodos,
+  };
+  const inputTodoProps: InputTodoProps = {
+    refresh: refetchTodos,
+  };
 
-  const handleClick = () => {
-    if (textInput === '') return
-    addTodo(textInput).then(() => { refetchTodos() })
-    setTextInput('')
-  }
-
-  // const todoItems: TodoItemProps[] = todos.map((todo) => ({
-  //     ...todo,
-  //     title: todo.title,
-  //   },
-    // button: {
-    //   ...defaultTodoItemProps.button,
-    //   type: 'Icon',
-    // }
-  // }))
-
-    // todoEntry: {
-    //   ...defaultTodoEntryProps,
-    //   input: {
-    //     ...defaultTodoEntryProps.input,
-    //     textValue: textInput,
-    //     onTextChanged: handleChange
-    //   },
-    //   button: {
-    //     ...defaultTodoEntryProps.button,
-    //     onButtonClicked: handleClick
-    //   }
-    // } as TodoEntryProps
-
-  
   return (
-    <div className="App">
-      <Header />
-      <InputTodo className={styles.inputTodo} refresh={refetchTodos} />
-      <TodoList className={styles.todoList} refresh={refetchTodos} todos={todos}/>
+    <div className='App'>
+      <Header {...headerProps} className={styles.header} />
+      <InputTodo className={styles.inputTodo} {...inputTodoProps} />
+      <TodoList className={styles.todoList} {...todoListProps} />
     </div>
   );
 }

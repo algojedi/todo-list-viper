@@ -5,7 +5,7 @@ import styles from './InputTodo.module.scss'
 import cx from 'classnames'
 
 
-type InputTodoProps = {
+export type InputTodoProps = {
 	className?: string
 	refresh?: () => void
 }
