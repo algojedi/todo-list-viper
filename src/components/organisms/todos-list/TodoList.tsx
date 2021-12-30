@@ -1,5 +1,5 @@
 import React from 'react'
-import { TodoItem, TodoItemProps, defaultProps as defaultTodoItemProps } from '../../molecules/todo-item/TodoItem'
+import { TodoItem, TodoItemProps } from '../../molecules/todo-item/TodoItem'
 import styles from './TodoList.module.scss'
 import cx from 'classnames'
 
