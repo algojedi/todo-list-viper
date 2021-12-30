@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { TodoPageProps } from '.'
 import { addTodo, deleteTodo, toggleTodo } from '../../../db'
 import { Todo } from '../../../types'
@@ -78,7 +78,6 @@ const withPresenter = (
                 }
             } as TodoEntryProps
         }
-        console.log({ blockProps })
         return <View {...props} {...blockProps} />
     }
     return Presenter

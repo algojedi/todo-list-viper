@@ -1,13 +1,9 @@
-import React, { useState } from 'react'
-import { addTodo, deleteTodo, getTodos, toggleTodo } from '../../../db'
-import { Todo } from '../../../types'
+import React from 'react'
 import TodoPageBlock from '../../blocks/todo-page-block/TodoPageBlock'
 import { TodoEntryProps } from '../../molecules/todo-entry/TodoEntry'
-import {
-    TodoItemProps,
-    defaultProps as defaultTodoItemProps
-} from '../../molecules/todo-item/TodoItem'
 import { TodoListProps } from '../../organisms/todos-list/TodoList'
+import cx from 'classnames'
+import styles from './TodoPage.module.scss'
 
 export type TodoPageProps = {
     todoList?: TodoListProps
@@ -24,8 +20,13 @@ export const TodoPage: React.FC<TodoPageProps> = ({
     todoList,
     todoEntry
 }) => {
-    console.log( { todoList, todoEntry } )
-    return <TodoPageBlock todoList={todoList} todoEntry={todoEntry} />
+    return (
+        <TodoPageBlock
+            className={cx(styles.todoPageBlock, className)}
+            todoList={todoList}
+            todoEntry={todoEntry}
+        />
+    )
 }
 
 TodoPage.defaultProps = defaultProps
