@@ -1,8 +1,8 @@
 import React from 'react';
 import cx from 'classnames';
-import styles from './Button.module.scss';
 import Text, { TextProps } from '../text';
 import Icon, { IconProps } from '../icon';
+import styles from './Button.module.scss';
 
 export type ButtonSizeType = 'Large' | 'Medium' | 'Small'
 export type ButtonTypeType = 'TextIcon' | 'Text' | 'Icon'

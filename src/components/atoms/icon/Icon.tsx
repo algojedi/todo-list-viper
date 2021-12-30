@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import React from 'react';
 import cx from 'classnames';
 import styles from './Icon.module.scss';
 import { ReactComponent as DeleteIcon } from '../../../resources/icons/delete.svg';
