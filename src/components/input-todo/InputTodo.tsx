@@ -1,4 +1,3 @@
-import classNames from 'classnames';
 import React, { useState } from 'react';
 import { addTodo } from '../../db';
 import styles from './InputTodo.module.scss';
