@@ -4,7 +4,6 @@ import styles from './TodoItem.module.scss'
 import Text from '../../atoms/text'
 import cx from 'classnames'
 import Button, { ButtonProps } from '../../atoms/button/Button'
-import { IconAssetType } from '../../atoms/icon/Icon'
 
 export type TodoItemProps = {
     className?: string;
@@ -21,7 +20,6 @@ export const defaultProps : TodoItemProps = {
     todo: {
         completed: false,
     }
-
 }
 
 export const TodoItem: React.FC<TodoItemProps> = ({ todo, button, className }) => {
