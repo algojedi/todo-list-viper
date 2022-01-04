@@ -4,8 +4,8 @@ This repo aims to demonstrate the usefulness of atomic and VIPER design patterns
 
 After cloning ... 
 
-"git checkout atomic" <-- atomic design applied
-"git checkout viper"  <-- AD + VIPER 
+"git checkout atomic" for atomic design.
+"git checkout viper" to see AD + VIPER. 
 
 ## Available Scripts
 
